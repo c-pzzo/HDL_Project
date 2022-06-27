@@ -20,4 +20,11 @@ Contains dummy time series data for air quality from 3 different air quality mon
 * /Multivariate: Folder with Multivariate regression models (ML, DL, HDL)
 * /Univariate: Folder with Univariate regression models (ML, DL, HDL)
 
+ # Presentation
+ Easy to access folder with reports with results
  
+ # SIMA
+ Raw SIMA data
+ 
+ # global_fv.ipynb
+ Main file with global user-defined functions and libraries.
