@@ -9,3 +9,11 @@ Contains dummy time series data for air quality from 3 different air quality mon
 * TimeSeriesFiles: Raw data was restructured into CSV files. Including splitting internal dictionaries
 
 * Table Creation: Python Notebook transforming raw JSON data into CSV files.
+
+# 1_EDA
+
+* Multivariate: Multivariate visualization and analysis for features in the air quality dataset for a single station.
+
+* Univariate: Univariate visualization for PM2.5
+
+* s0_DataVisualization.ipynb: First attempt for univariate visualization. 
