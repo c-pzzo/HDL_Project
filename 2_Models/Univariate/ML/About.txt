@@ -1,0 +1,8 @@
+Top Methods For Univariate Time Series Forecasting
+
+It is important and useful to test simple forecast strategies prior to testing more complex models. Simple forecast strategies are those that assume little or nothing about the nature of the forecast problem and are fast to implement and calculate. The results can be used as a baseline in performance and used as a point of a comparison. If a model can perform better than the performance of a simple forecast strategy, then it can be said to be skillful.
+
+Recently, deep learning methods such as recurrent neural networks and one-dimensional
+convolutional neural networks, or CNNs, have been shown to provide state-of-the-art results on
+challenging activity recognition tasks with little or no data feature engineering, instead using
+feature learning on raw data.
