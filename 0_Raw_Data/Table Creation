@@ -1,0 +1,135 @@
+# --------------------
+# SQL Commands
+# --------------------
+SET GLOBAL local_infile=1;
+
+# -----------
+CREATE TABLE HDL_Project.`HDL_PM2d5` (
+dia DATETIME
+, Monterrey float
+)
+COMMENT="https://aire.comiteecologicointegral.org/registro";
+
+
+CREATE TABLE HDL_Project.`s32_ts` (
+
+`datetime` DATETIME
+, `date` DATE
+, `time` TIME
+, `station` TINYTEXT
+, `pressure` FLOAT
+, `temp` FLOAT
+, `precip` FLOAT
+, `wind_northward` FLOAT
+, `wind_eastward` FLOAT
+, `O3` FLOAT
+, `NO2` FLOAT
+, `PM25` FLOAT      
+) 
+COMMENT = "A dummy process has been applied to deal with missing values";
+
+CREATE TABLE HDL_Project.`s31_ts` (
+
+`datetime` DATETIME
+, `date` DATE
+, `time` TIME
+, `station` TINYTEXT
+, `pressure` FLOAT
+, `temp` FLOAT
+, `precip` FLOAT
+, `wind_northward` FLOAT
+, `wind_eastward` FLOAT
+, `O3` FLOAT
+, `NO2` FLOAT
+, `PM25` FLOAT      
+) 
+COMMENT = "A dummy process has been applied to deal with missing values";
+
+CREATE TABLE HDL_Project.`s71_ts` (
+
+`datetime` DATETIME
+, `date` DATE
+, `time` TIME
+, `station` TINYTEXT
+, `pressure` FLOAT
+, `temp` FLOAT
+, `precip` FLOAT
+, `wind_northward` FLOAT
+, `wind_eastward` FLOAT
+, `O3` FLOAT
+, `NO2` FLOAT
+, `PM25` FLOAT      
+) 
+COMMENT = "A dummy process has been applied to deal with missing values";
+
+create table HDL_Project.`cat_stations` (
+	station_code TINYTEXT
+    , station_name TEXT 
+);
+
+INSERT INTO `cat_stations` (station_code, station_name)
+VALUES("SE", "La Pastora")
+, ("NE", "San Nicolás")
+, ("CE", "Obispado")
+, ("NO", "San Bernabé")
+, ("SO", "Sta. Catarina")
+, ("NO2", "García")
+, ("NTE", "Escobedo")
+, ("NE2", "Apodaca")
+, ("SE2", "Juárez")
+, ("SO2", "San Pedro")
+, ("SE3", "Cadereyta")
+, ("SUR", "Pueblo Serena")
+, ("NTE2", "Universidad");
+
+drop table if exists HDL_Project.`cat_particles`;
+
+create table HDL_Project.`cat_particles` (
+	particle_code TINYTEXT
+    , short_name TINYTEXT
+    , name TEXT 
+);
+
+INSERT INTO `cat_particles` (particle_code, short_name, name)
+VALUES
+("pm10", "PM 10", "Material Particulado 10 micras")
+, ("pm25", "PM 2.5", "Material Particulado 2.5 micras")
+, ("o3", "O3", "Ozono")
+, ("co", "CO", "Monóxido de Carbono")
+, ("so2", "SO2", "Bióxido de Azufre")
+, ("no", "NO", "Monóxido de Nitrógeno")
+, ("no2", "NO2", "Bióxido de Nitrógeno")
+, ("nox", "NOx", "Óxidos de Nitrógeno");
+
+
+create table HDL_Project.`cat_meteorological_params` (
+	meteorological_code TINYTEXT
+    , meteorological_name TEXT 
+);
+
+INSERT INTO `cat_meteorological_params` (meteorological_code, meteorological_name)
+VALUES
+("tout", "Temperatura")
+, ("wdr", "Dirección del Viento")
+, ("wsr", "Velocidad del Viento")
+, ("rh", "Humedad Relativa")
+, ("sr", "Radiación Solar")
+, ("rainf", "Precipitación")
+, ("prs", "Presión atmosférica");
+
+# --------------------
+# Command lines
+# --------------------
+
+mysql -ucesar -pmysql92@ --local-infile HDL_Project -e "LOAD DATA LOCAL INFILE 'PA_PM2-5_150101_220301.csv'  INTO TABLE HDL_PM2d5 FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS"
+mysql -ucesar -pmysql92@ --local-infile HDL_Project -e "LOAD DATA LOCAL INFILE 's32_ts.csv'  INTO TABLE s32_ts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS"
+mysql -ucesar -pmysql92@ --local-infile HDL_Project -e "LOAD DATA LOCAL INFILE 's31_ts.csv'  INTO TABLE s31_ts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS"
+mysql -ucesar -pmysql92@ --local-infile HDL_Project -e "LOAD DATA LOCAL INFILE 's71_ts.csv'  INTO TABLE s71_ts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS"
+
+# --------------------
+# Git commands
+# --------------------
+git add * 
+git commit -m "About"
+git push
+
