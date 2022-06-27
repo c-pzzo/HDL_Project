@@ -1,0 +1,7 @@
+Questions
+
+* Will the collection of features per station will make the model robust to missing data?
+* Is it necessary to implement a data model for missing data?
+
+Ideas
+* A 1-step model can be implemented for missing data. From the baseline models, evaluate which one is best. 
